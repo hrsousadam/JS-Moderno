@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX com Java</title>
+    <script>
+        function loadMessage() {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "/api/message", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("message").innerText = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>AJAX com Java</h1>
+    <button onclick="loadMessage()">Load Message</button>
+    <p id="message"></p>
+</body>
+</html>
